@@ -185,24 +185,4 @@ elif segunda_seleccion == 2:
     escritura_file.write("\nQc = " + str(float(round(qc_global[-1], decimales_de_redonde))) + "\n")
 
     escritura_file.close()
-    
-mail = input("Desea que le enviemos un mail con los resultados:\n1 = si\n2 = no\n>>> ")
-while not mail.isdigit() or int(mail) > 2 or int(mail) < 1:
-    mail = input("Desea que le enviemos un mail con los resultados:\n1 = si\n2 = no\n>>> ")
-
-destinatario = input("\nIngrese su mail:\n>>> ")
-
-if int(mail) == 1:
-
-    import smtplib
-
-    mensage = "Te la creiste we XD"
-
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login('AugustoOspal@gmail.com', 'Augustofelipe24')
-    server.sendmail('AugustoOspal@gmail.com', destinatario, mensage)
-
-    server.quit()
-
-    print("El mail ah sido exitosamente")
+  
