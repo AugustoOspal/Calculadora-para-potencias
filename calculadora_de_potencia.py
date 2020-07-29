@@ -44,6 +44,13 @@ contador_de_pasadas = 0
 sumador_de_qi_grupal = 0
 sumador_de_potencia_activa_grupal = 0
 
+# Podria agragar distintas funciones a cada proceso
+#
+# Todo: 
+# Hacer funciones para la opcion 1 y la 2
+# Hacer una funcion para mostrar los resultados
+# Chequear si esta version es compatible con la calculadora
+
 cantidad_de_grupos = int(input("\nIngrese la cantidad de grupos totales: "))
 cantidad_de_elementos = int(input("Ingrese la cantidad de elemtos totales: "))
 
