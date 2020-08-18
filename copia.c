@@ -1,6 +1,6 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 // Variables globales
 
@@ -149,6 +149,23 @@ int main(){
 	printf("\nQi: %f", valorQiGlobal);
 	printf("\nQf: %f", valorQfGlobal);
 	printf("\nQc: %f\n\n", valorQcGlobal);
+
+	
+	// Esta parte crea la opcion de poder crear una hoja de excel a partir de los datos
+	char hoja_de_excel;
+
+	printf("¿Quiere crear una hoja de excel con los datos?\n\nSi: y\nNo: n");
+	scanf("%c", &hoja_de_excel);
+
+	if (hoja_de_excel == "y")
+	{
+		FILE *file = fopen("Hoja_de_datos.csv", "a");
+	}
+
+	else
+	{
+		 
+	}
 
 }
 

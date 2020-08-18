@@ -1,3 +1,4 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -37,6 +38,8 @@ void show_name(void)
 void ask_for_data(void)
 {
     printf("\nIngrese los siguientes datos:\n");
+    printf("\n\nCantidad de grupos: ");
+    scanf("%d", &number_of_groups);
 
     for (int i = 0; i < number_of_groups; i++)
     {
