@@ -3,16 +3,13 @@
 #include <stdlib.h>
 
 // Variables globales
-
 int gruposTotal, elementosTotal, casoP, cantidadElementos;
 float FP_Global, TgFinal, Qi, potenciaActivaTotal, potenciaAparente, Qf, Qc;
 
 // Variables para suma de almacenamiento dinamico
-
 float varSumaPotenciaActivaElemental, varSumaQiElemental, varSumaPotenciaActivaGrupal, varSumaQiGrupal;
 
 // Variables resultados Globales
-
 float valorPotenciaActivaGlobal, valorPotenciaAparenteGlobal, valorQiGlobal, valorQfGlobal, valorQcGlobal;
 
 int main(){
@@ -29,7 +26,7 @@ int main(){
 	printf("\nCuantos elementos tiene en total la instalacion?\n");
 	scanf("%d", & cantidadElementos);
 
-    // Arrays
+    	// Arrays
 	float valorDeQcElemental[gruposTotal];
 	float valorDeQfElemental[gruposTotal];
 	float valorAparenteElemental[gruposTotal];
@@ -157,15 +154,8 @@ int main(){
 	printf("¿Quiere crear una hoja de excel con los datos?\n\nSi: y\nNo: n");
 	scanf("%c", &hoja_de_excel);
 
+	//Esta parte no esta terminada
 	if (hoja_de_excel == "y")
 	{
 		FILE *file = fopen("Hoja_de_datos.csv", "a");
 	}
-
-	else
-	{
-		 
-	}
-
-}
-
