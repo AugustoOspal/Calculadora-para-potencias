@@ -18,7 +18,7 @@ print("|___|  ___| |     /   | |____")
 decimales_de_redonde = 2
 #########################
 
-ts = []
+ts_list = []
 elements = []
 
 separador0 = "----------------------------------------------------"
@@ -44,3 +44,9 @@ for tablero_secundario in range(num_tablero):
         element.ask_for_data()
         element.solve_element(tg_final)
         elements.append(element)
+
+    ts = Element()
+    ts.show_data(decimales_de_redonde)
+    ts.solve_ts(elements, tg_final, tablero_secundario)
+    ts_list.append(ts)
+    ts_list[0].show_data(decimales_de_redonde)

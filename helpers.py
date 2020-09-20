@@ -2,7 +2,9 @@
 import math
 
 class Element:
-    """Esta clase almacena las caracteristicas de cada elemento, tablero secundario y tablero principal de la instalacion."""
+    """Esta clase almacena las caracteristicas de cada elemento, tablero secundario y tablero principal de la instalacion.
+    La opcion de verificacion todavia no esta implementada, pero la dejo preparada."""
+
     def __init__(self, name='', quantity=0, P=0, fp=0, S=0, Qi=0, Qf=0, Qc=0, verif=0):
         self.name = name
         self.P = P
@@ -47,3 +49,21 @@ class Element:
         self.Qi = math.sqrt(self.S ** 2 - self.P ** 2)
         self.Qf = self.P * tg
         self.Qc = self.Qi - self.Qf
+
+    def solve_ts(self, elements, tg, position=None):
+        """Este metodo calcula los valores de un tablero secundario con los valores de los elementos del tablero.
+        El primer argumento conciste en la lista de elementos de donde vamos a sacar los elementos, y el segundo
+        conciste en la posicion que tenga el tablero secundario en una lista de tableros secundarios si es que la hay.
+        Si el segundo paramtero no se rellena, por defaul sera None, por lo que se tendra en cuanta que se quiere un solo tablero."""
+
+        for element in range(len(elements)):
+            self.P += self.P + elements[element].P
+            self.Qi += self.Qi + elements[element].Qi
+
+        self.name = f"Ts {position + 1}"
+        self.S = math.sqrt(self.P ** 2 + self.Qi ** 2) 
+        self.Qf = self.P * tg
+        self.Qc = self.Qi - self.Qf
+        self.quantity = 1
+
+
