@@ -46,7 +46,5 @@ for tablero_secundario in range(num_tablero):
         elements.append(element)
 
     ts = Element()
-    ts.show_data(decimales_de_redonde)
     ts.solve_ts(elements, tg_final, tablero_secundario)
     ts_list.append(ts)
-    ts_list[0].show_data(decimales_de_redonde)

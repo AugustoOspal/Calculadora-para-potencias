@@ -31,24 +31,25 @@ class Element:
         print(f"P: {round(self.P, decimal_number)}")
         print(f"VA: {round(self.S, decimal_number)}")
         print(f"FP: {round(self.fp, decimal_number)}")
-        print(f"Quanity: {self.quantity}")
-
         print(f"Qi: {round(self.Qi, decimal_number)}")
         print(f"Qf: {round(self.Qf, decimal_number)}")
         print(f"Qc: {round(self.Qc, decimal_number)}")
+        print(f"Quanity: {self.quantity}")
 
     def solve_element(self, tg):
         """Con los valores de los atributos ingresados con ask_for_data se resuelven los atributos faltantes del elemento."""
 
         if self.P == 0:
-            self.P = self.S * self.fp
+            self.P = (self.S * self.fp) * self.quantity
 
         elif self.S == 0:
+            self.P = self.P * self.quantity
             self.S = self.P / self.fp
 
         self.Qi = math.sqrt(self.S ** 2 - self.P ** 2)
         self.Qf = self.P * tg
         self.Qc = self.Qi - self.Qf
+        self.fp = self.P / self.S
 
     def solve_ts(self, elements, tg, position=None):
         """Este metodo calcula los valores de un tablero secundario con los valores de los elementos del tablero.
@@ -56,14 +57,13 @@ class Element:
         conciste en la posicion que tenga el tablero secundario en una lista de tableros secundarios si es que la hay.
         Si el segundo paramtero no se rellena, por defaul sera None, por lo que se tendra en cuanta que se quiere un solo tablero."""
 
-        for element in range(len(elements)):
-            self.P += self.P + elements[element].P
-            self.Qi += self.Qi + elements[element].Qi
+        for element in elements:
+            self.P += element.P
+            self.Qi += element.Qi
 
         self.name = f"Ts {position + 1}"
         self.S = math.sqrt(self.P ** 2 + self.Qi ** 2) 
         self.Qf = self.P * tg
         self.Qc = self.Qi - self.Qf
         self.quantity = 1
-
-
+        self.fp = self.P / self.S
