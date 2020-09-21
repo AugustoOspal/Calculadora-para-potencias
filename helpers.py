@@ -27,7 +27,7 @@ class Element:
     def show_data(self, decimal_number):
         """Muestra todos los atributos del objeto."""
 
-        print(f"Name: {self.name}")
+        print(f"\nName: {self.name}")
         print(f"P: {round(self.P, decimal_number)}")
         print(f"VA: {round(self.S, decimal_number)}")
         print(f"FP: {round(self.fp, decimal_number)}")
@@ -62,8 +62,24 @@ class Element:
             self.Qi += element.Qi
 
         self.name = f"Ts {position + 1}"
+        self.quantity = 1
         self.S = math.sqrt(self.P ** 2 + self.Qi ** 2) 
         self.Qf = self.P * tg
         self.Qc = self.Qi - self.Qf
-        self.quantity = 1
         self.fp = self.P / self.S
+
+def show_all_data(elements, secondary_board, decimal_number=2):
+    """Muetra todos los datos de los elementos, tableros secundarios y tablero principal."""
+
+    for element in elements:
+        element.show_data(decimal_number)
+
+    for ts in secondary_board:
+        ts.show_data(decimal_number)
+
+def update_elements(temp_elements, elements):
+    """Guarda todos los elementos en la lista elements y borra los de temp_elements."""
+
+    for element in temp_elements:
+        elements.append(element)
+        del element

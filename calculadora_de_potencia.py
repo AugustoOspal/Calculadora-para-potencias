@@ -20,6 +20,7 @@ decimales_de_redonde = 2
 
 ts_list = []
 elements = []
+temp_elements = []
 
 separador0 = "----------------------------------------------------"
 separador1 = "===================================================="
@@ -43,8 +44,10 @@ for tablero_secundario in range(num_tablero):
         element = Element()
         element.ask_for_data()
         element.solve_element(tg_final)
-        elements.append(element)
+        temp_elements.append(element)
 
     ts = Element()
-    ts.solve_ts(elements, tg_final, tablero_secundario)
+    ts.solve_ts(temp_elements, tg_final, tablero_secundario)
+    update_elements(temp_elements, elements)
     ts_list.append(ts)
+    show_all_data(elements, ts_list)
