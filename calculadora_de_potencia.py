@@ -54,4 +54,3 @@ for tablero_secundario in range(num_tablero):
 tp = Element()
 tp.solve_ts(ts_list, tg_final)
 show_all_data(elements, ts_list, tp)
-print("Probbando una cosa de github")
