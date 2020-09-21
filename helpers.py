@@ -51,7 +51,7 @@ class Element:
         self.Qc = self.Qi - self.Qf
         self.fp = self.P / self.S
 
-    def solve_ts(self, elements, tg, position=None):
+    def solve_ts(self, elements, tg, position=0):
         """Este metodo calcula los valores de un tablero secundario con los valores de los elementos del tablero.
         El primer argumento conciste en la lista de elementos de donde vamos a sacar los elementos, y el segundo
         conciste en la posicion que tenga el tablero secundario en una lista de tableros secundarios si es que la hay.
@@ -82,4 +82,5 @@ def update_elements(temp_elements, elements):
 
     for element in temp_elements:
         elements.append(element)
-        del element
+        
+    del temp_elements[:len(temp_elements)]
