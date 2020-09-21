@@ -68,7 +68,7 @@ class Element:
         self.Qc = self.Qi - self.Qf
         self.fp = self.P / self.S
 
-def show_all_data(elements, secondary_board, decimal_number=2):
+def show_all_data(elements, secondary_board, master_board, decimal_number=2):
     """Muetra todos los datos de los elementos, tableros secundarios y tablero principal."""
 
     for element in elements:
@@ -76,6 +76,8 @@ def show_all_data(elements, secondary_board, decimal_number=2):
 
     for ts in secondary_board:
         ts.show_data(decimal_number)
+
+    master_board.show_data(decimal_number)
 
 def update_elements(temp_elements, elements):
     """Guarda todos los elementos en la lista elements y borra los de temp_elements."""

@@ -50,4 +50,7 @@ for tablero_secundario in range(num_tablero):
     ts.solve_ts(temp_elements, tg_final, tablero_secundario)
     update_elements(temp_elements, elements)
     ts_list.append(ts)
-    show_all_data(elements, ts_list)
+
+tp = Element()
+tp.solve_ts(ts_list, tg_final)
+show_all_data(elements, ts_list, tp)
