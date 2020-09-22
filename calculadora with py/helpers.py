@@ -2,8 +2,8 @@
 import math
 
 class Element:
-    """Esta clase almacena las caracteristicas de cada elemento, tablero secundario y tablero principal de la instalacion.
-    La opcion de verificacion todavia no esta implementada, pero la dejo preparada."""
+    """Esta clase almacena las caracteristicas de cada elemento, tablero secundario y tablero principal 
+    de la instalacion. La opcion de verificacion todavia no esta implementada, pero la dejo preparada."""
 
     def __init__(self, name='', quantity=0, P=0, fp=0, S=0, Qi=0, Qf=0, Qc=0, verif=0):
         self.name = name
@@ -51,7 +51,7 @@ class Element:
         self.Qc = self.Qi - self.Qf
         self.fp = self.P / self.S
 
-    def solve_ts(self, elements, tg, position=0):
+    def solve_ts(self, elements, tg, name):
         """Este metodo calcula los valores de un tablero secundario con los valores de los elementos del tablero.
         El primer argumento conciste en la lista de elementos de donde vamos a sacar los elementos, y el segundo
         conciste en la posicion que tenga el tablero secundario en una lista de tableros secundarios si es que la hay.
@@ -61,12 +61,20 @@ class Element:
             self.P += element.P
             self.Qi += element.Qi
 
-        self.name = f"Ts {position + 1}"
+        self.name = name
         self.quantity = 1
         self.S = math.sqrt(self.P ** 2 + self.Qi ** 2) 
         self.Qf = self.P * tg
         self.Qc = self.Qi - self.Qf
         self.fp = self.P / self.S
+
+def update_elements(temp_elements, elements):
+    """Guarda todos los elementos en la lista elements y borra los de temp_elements."""
+
+    for element in temp_elements:
+        elements.append(element)
+        
+    del temp_elements[:len(temp_elements)]
 
 def show_all_data(elements, secondary_board, master_board, decimal_number=2):
     """Muetra todos los datos de los elementos, tableros secundarios y tablero principal."""
@@ -79,10 +87,3 @@ def show_all_data(elements, secondary_board, master_board, decimal_number=2):
 
     master_board.show_data(decimal_number)
 
-def update_elements(temp_elements, elements):
-    """Guarda todos los elementos en la lista elements y borra los de temp_elements."""
-
-    for element in temp_elements:
-        elements.append(element)
-        
-    del temp_elements[:len(temp_elements)]

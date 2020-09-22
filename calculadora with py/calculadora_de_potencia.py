@@ -36,21 +36,21 @@ print("\nA acontinuacion va a introducir los datos de cada elemento")
 print("PD: Si no tiene ese dato ingrese 0")
 
 for tablero_secundario in range(num_tablero):
-    print(f"\n\n{separador1}Grupo {tablero_secundario + 1}{separador1}\n")
+    print(f"\n{separador1}\nGrupo {tablero_secundario + 1}\n{separador1}")
     num_elements = int(input(f"Ingrese la cantidad de elementos del grupo {tablero_secundario + 1}: "))
 
     for elemento in range(num_elements):
-        print(f"\n{separador0}Elemento {elemento + 1}{separador0}") 
+        print(f"\n{separador0}\nElemento {elemento + 1}\n{separador0}") 
         element = Element()
         element.ask_for_data()
         element.solve_element(tg_final)
         temp_elements.append(element)
 
     ts = Element()
-    ts.solve_ts(temp_elements, tg_final, tablero_secundario)
+    ts.solve_ts(temp_elements, tg_final, f"Ts {tablero_secundario + 1}")
     update_elements(temp_elements, elements)
     ts_list.append(ts)
 
 tp = Element()
-tp.solve_ts(ts_list, tg_final)
+tp.solve_ts(ts_list, tg_final, "Tp")
 show_all_data(elements, ts_list, tp)
