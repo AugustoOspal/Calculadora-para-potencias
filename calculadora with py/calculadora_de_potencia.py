@@ -24,7 +24,6 @@ temp_elements = []
 
 separador0 = "----------------------------------------------------"
 separador1 = "===================================================="
-separador2 = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 fp_final = float(input("\n\nIngrese el cos 𝜑 final: "))
 tg_final = float(input("Ingrese el tg 𝜑 final: "))

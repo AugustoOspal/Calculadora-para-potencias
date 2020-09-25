@@ -86,4 +86,4 @@ def show_all_data(elements, secondary_board, master_board, decimal_number=2):
         ts.show_data(decimal_number)
 
     master_board.show_data(decimal_number)
-
+    
